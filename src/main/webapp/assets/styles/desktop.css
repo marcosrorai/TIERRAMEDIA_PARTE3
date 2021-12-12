@@ -1,0 +1,184 @@
+/* ------------------------------ LOGIN ------------------------------ */
+.login {
+  padding-top: 3em;
+  height: 100%;
+}
+
+.image-container {
+  height: 700px;
+}
+
+.login-container {
+  padding: 5rem;
+  height: 700px;
+}
+
+.login-buttons-top {
+  text-align: end;
+}
+
+.login-input h2 {
+  text-align: start;
+}
+
+.login-input input {
+  text-align: start;
+  margin-bottom: var(--block-spacing);
+}
+
+.login-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--block-spacing);
+}
+
+.login-checkbox a {
+  color: var(--green-color);
+}
+
+.login-checkbox p {
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+
+.login-buttons-bottom {
+  display: initial;
+}
+
+.login-buttons-bottom .button {
+  margin-right: 20px;
+}
+
+/* ------------------------- PANTALLA PRINCIPAL ------------------------- */
+/* Header */
+nav .logo {
+  font-size: var(--h2-font-size);
+}
+
+.action .profile a {
+  font-size: 1.5rem;
+}
+
+/* Menu */
+.content .links li a {
+  font-size: var(--big-font-size);
+}
+
+.wrapper .search-icon {
+  font-size: 1.2rem;
+}
+
+/* Spotlight */
+.spotlight-section {
+  height: 600px;
+  background-color: var(--bone-color);
+}
+
+/* More to explore */
+.spotlight-alt {
+  height: 600px;
+  background-color: var(--cinnamon-color);
+}
+
+/* Footer */
+
+.footer-nav ul {
+  display: flex;
+  font-size: var(--normal-font-size);
+  text-transform: uppercase;
+  list-style-type: none;
+}
+
+/* ------------------------- ATRACCIONES ------------------------- */
+/* More to explore */
+.more-section {
+  height: auto;
+  padding: 6em 0;
+  background-color: var(--bone-color);
+}
+
+.card-container {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card-attraction {
+  margin: 0;
+}
+
+/* ------------------------- PRODUCTO ------------------------- */
+.product-section {
+  min-height: 700px;
+}
+.product-content {
+  width: 1000px;
+  height: 600px;
+  padding: 5em 10%;
+}
+
+.product-image img {
+  max-width: none;
+}
+
+.product-description {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+}
+
+.product-description p {
+  margin-bottom: 1em;
+}
+.product-description p:last-child {
+  display: initial;
+}
+
+.product-buy {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(232, 232, 232, 0.6);
+  border-radius: 5px;
+  padding: 1em;
+}
+
+.product-buy h2 {
+  margin: 0;
+  font-weight: 500;
+}
+
+.product-buttons {
+  flex-direction: row;
+}
+
+.product-buttons a:first-child {
+  width: 120px;
+  padding: 0;
+  margin-right: 0.5em;
+}
+
+.button-1 {
+  margin: 0;
+}
+
+.button-2 {
+  width: 40px;
+}
+
+/* ------------------------- LISTADO ------------------------- */
+.list-nav ul {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  text-transform: uppercase;
+  font-size: var(--normal-font-size);
+}
+
+.list-nav ul li {
+  padding: 0 17.5px;
+}
+
+.list-nav ul li a {
+  color: var(--bone-color);
+}
