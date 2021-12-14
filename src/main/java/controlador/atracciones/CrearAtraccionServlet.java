@@ -11,7 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import modelos.Atraccion;
 import servicios.AtraccionServicio;
 
-@WebServlet("/crear-atraccion.do")
+@WebServlet("/views/crear-atraccion.do")
 public class CrearAtraccionServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 183179394263404992L;
@@ -26,7 +26,7 @@ public class CrearAtraccionServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/crear-atraccion.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/crear-atraccion.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -35,7 +35,7 @@ public class CrearAtraccionServlet extends HttpServlet {
 		String name = req.getParameter("name");
 		Double cost = Double.parseDouble(req.getParameter("cost"));
 		Double duration = Double.parseDouble(req.getParameter("duration"));
-		String tipo = req.getParameter("tipo");
+		String tipo = req.getParameter("tipo").toUpperCase();
 		Integer capacity = Integer.parseInt(req.getParameter("capacity"));
 
 		Atraccion attraction = atraccionServicio.create(name, cost, duration, tipo, capacity);
@@ -45,7 +45,7 @@ public class CrearAtraccionServlet extends HttpServlet {
 			req.setAttribute("attraction", attraction);
 
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/crear-atraccion.jsp");
+					.getRequestDispatcher("/views/crear-atraccion.jsp");
 			dispatcher.forward(req, resp);
 		}
 

@@ -31,7 +31,7 @@ public class EditarAtraccionServlet extends HttpServlet {
 		Atraccion attraction = atraccionServicio.find(id);
 		req.setAttribute("attraction", attraction);
 
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/editar-atraccion.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/editar-atraccion.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -47,11 +47,11 @@ public class EditarAtraccionServlet extends HttpServlet {
 		Atraccion attraction = atraccionServicio.update(id, name, cost, duration, tipo, capacity);
 
 		if (attraction.esValida()) {
-			resp.sendRedirect("/torre/index.jsp");
+			resp.sendRedirect("/torre/listado.do");
 		} else {
 			req.setAttribute("attraction", attraction);
 
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/editar-atraccion.jsp");
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/views/editar-atraccion.jsp");
 			dispatcher.forward(req, resp);
 		}
 	}
