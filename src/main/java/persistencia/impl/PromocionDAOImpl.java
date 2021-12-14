@@ -152,6 +152,27 @@ public class PromocionDAOImpl implements PromocionDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	@Override
+    public Promocion findPromo(Integer id, List<Atraccion> atracciones) {
+        try {
+            String sql = "SELECT * FROM PROMOCIONES WHERE id = ?";
+            Connection conn = ConnectionBBDD.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setInt(1, id);
+
+            ResultSet resultados = statement.executeQuery();
+
+            Promocion promocion = null;
+            if (resultados.next()) {
+                promocion = toPromocion(resultados, atracciones);
+            }
+
+            return promocion;
+        } catch (Exception e) {
+            throw new MissingDataException(e);
+        }
+    }
 
 	@Override
 	public Promocion find(Integer id) {
@@ -165,7 +186,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 
 			Promocion promocion = null;
 			if (resultados.next()) {
-				promocion = toPromocion(resultados, atracciones);
+				promocion = toPromocion(resultados, null);
 			}
 
 			return promocion;
@@ -185,10 +206,6 @@ public class PromocionDAOImpl implements PromocionDAO {
 		// TODO Auto-generated method stub
 
 	}
-
-
-
-
 
 }
 

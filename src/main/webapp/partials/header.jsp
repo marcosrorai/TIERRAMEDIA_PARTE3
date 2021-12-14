@@ -45,8 +45,8 @@
           ></label>
           <div class="content">
             <ul class="links">
-              <li><a href="#">Atracciones</a></li>
-              <li><a href="#">Promociones</a></li>
+              <li><a href="/torre/atracciones.jsp">Atracciones</a></li>
+              <li><a href="/torre/promociones.jsp">Promociones</a></li>
               <li><a href="/torre/listado.do">Comprar Boletos</a></li>
               <li><a href="#">Itinerario</a></li>
             </ul>

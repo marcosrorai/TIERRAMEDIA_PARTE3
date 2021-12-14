@@ -52,14 +52,13 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			Connection connection = ConnectionBBDD.getConnection();
 
 			PreparedStatement statement = connection.prepareStatement(sql);
-			statement.setString(1, atraccion.getNombre());
-			statement.setDouble(2, atraccion.getCosto());
-			statement.setDouble(3, atraccion.getDuracion());
-			statement.setString(4, atraccion.getTipo().toString());
-			statement.setInt(5, atraccion.getCupo());
-			statement.setString(6, atraccion.getNombre());
+			statement.setDouble(1, atraccion.getCosto());
+			statement.setDouble(2, atraccion.getDuracion());
+			statement.setString(3, atraccion.getTipo().toString());
+			statement.setInt(4, atraccion.getCupo());
+			statement.setInt(5, atraccion.getId());
 			statement.executeUpdate();
-
+			
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}
@@ -117,7 +116,7 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 			statement.setInt(1, 1);
 			statement.setInt(2, id);
 			statement.executeUpdate();
-			
+
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}

@@ -40,7 +40,7 @@ public class CrearAtraccionServlet extends HttpServlet {
 
 		Atraccion attraction = atraccionServicio.create(name, cost, duration, tipo, capacity);
 		if (attraction.esValida()) {
-			resp.sendRedirect("/torre/index.jsp");
+			resp.sendRedirect("/views/listado.do");
 		} else {
 			req.setAttribute("attraction", attraction);
 
