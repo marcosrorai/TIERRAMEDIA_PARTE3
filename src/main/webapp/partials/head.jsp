@@ -33,5 +33,5 @@
       href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
     />
     	  <!-- Script -->
-    <script defer src="/torre/assets/js/script.js"></script>
+    <script src="/torre/assets/js/script.js"></script>
 </head>

@@ -211,14 +211,14 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 	public int insert(Usuario usuario) {
 		
 			try {
-				String sql = "INSERT INTO USUARIOS (NOMBRE, PASSWORD, COINS, TIME) VALUES (?, ?, ?, ?)";
+				String sql = "INSERT INTO USUARIOS (NOMBRE, PRESUPUESTO	, TIEMPO_DISPONIBLE, PREFERENCIA) VALUES (?, ?, ?, ?)";
 				Connection conn = ConnectionBBDD.getConnection();
 
 				PreparedStatement statement = conn.prepareStatement(sql);
-				statement.setString(2, usuario.getNombre());
-				statement.setString(3, usuario.getPassword());
-				statement.setInt(3, user.getCoins());
-				statement.setDouble(4, user.getTime());
+				statement.setString(1, usuario.getNombre());
+				statement.setDouble(2, usuario.getPresupuesto());
+				statement.setDouble(3, usuario.getTiempoDisponible());
+				statement.setString(4, usuario.getPreferencia().toString());
 				int rows = statement.executeUpdate();
 
 				return rows;

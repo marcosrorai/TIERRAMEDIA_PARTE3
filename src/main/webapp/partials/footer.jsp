@@ -8,10 +8,10 @@
 		<div class="footer-nav">
 			<nav>
 				<ul>
-					<li>inicio</li>
-					<li>destacados</li>
-					<li>atracciones</li>
-					<li>itinerario</li>
+					<li><a href="/torre/index.jsp">inicio</a></li>
+					<li><a href="/torre/listado.do">promociones</a></li>
+					<li><a href="/torre/atracciones.jsp">atracciones</a></li>
+					<li><a href="/torre/index.jsp">itinerario</a></li>
 				</ul>
 			</nav>
 		</div>

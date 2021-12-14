@@ -38,8 +38,8 @@
 							
 						</div>
 						<div class="login-buttons-bottom">
-							<button type="submit" class="button">Sign In</button>
-							<a class="member" href="#">I'm already member</a>
+							<button type="submit" class="button">Ingresar</button>
+							<a class="member" href="#">Ya soy miembro</a>
 						</div>
 					</div>
 				</form>

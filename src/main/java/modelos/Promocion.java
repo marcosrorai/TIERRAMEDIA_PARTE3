@@ -22,11 +22,11 @@ public abstract class Promocion extends Producto {
 		}
 		return atraccionesQueIncluye;
 	}
-	
 
 	public int getId() {
 		return id;
 	}
+
 	public LinkedList<Atraccion> getAtracciones() {
 		return this.atracciones;
 	}
@@ -46,7 +46,7 @@ public abstract class Promocion extends Producto {
 			this.duracion += atraccion.duracion;
 		}
 	}
-	
+
 	public boolean hayCupo() {
 		boolean hayCupo = true;
 		Iterator<Atraccion> itr = this.atracciones.iterator();
@@ -57,13 +57,11 @@ public abstract class Promocion extends Producto {
 		return hayCupo;
 	}
 
-	public void descontarCupo()  {
+	public void descontarCupo() {
 		for (Atraccion atraccion : atracciones) {
 			atraccion.descontarCupo();
 		}
 	}
-	
-
 
 	@Override
 	public boolean esPromo() {
@@ -75,9 +73,4 @@ public abstract class Promocion extends Producto {
 		return super.toString() + ", Incluye: " + obtenerNombreAtraccionesDeLista();
 	}
 
-	
-
-	
-	
-	
 }

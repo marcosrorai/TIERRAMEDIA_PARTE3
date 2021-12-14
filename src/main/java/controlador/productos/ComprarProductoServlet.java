@@ -1,6 +1,8 @@
 package controlador.productos;
 
+
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import jakarta.servlet.RequestDispatcher;
@@ -9,6 +11,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import modelos.Atraccion;
 import modelos.Usuario;
 import persistencia.comunes.DAOFactory;
 import servicios.ComprarProductoServicio;
@@ -31,7 +34,8 @@ import servicios.ComprarProductoServicio;
 			Integer productoId = Integer.parseInt(req.getParameter("id"));
 			Boolean esPromo = Boolean.parseBoolean(req.getParameter("esPromo"));
 			Usuario user = (Usuario) req.getSession().getAttribute("user");
-			Map<String, String> errors = comprarProductoServicio.buy(user.getId(), productoId, esPromo);
+			List<Atraccion> atracciones = DAOFactory.getAtraccionDAO().getAll();
+			Map<String, String> errors = comprarProductoServicio.buy(user.getId(), productoId, esPromo, atracciones);
 
 			Usuario user2 = DAOFactory.getUsuarioDAO().find(user.getId());
 			req.getSession().setAttribute("user", user2);

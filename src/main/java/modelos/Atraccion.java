@@ -73,5 +73,10 @@ public class Atraccion extends Producto {
 	public Map<String, String> getErrores() {
 		return errores;
 	}
+	
+	public void setId(Integer id) {
+		this.id= id;
+		
+	}
 
 }
