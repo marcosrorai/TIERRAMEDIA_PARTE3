@@ -19,7 +19,7 @@
 			</div>
 		</c:if>
 
-		<form action="/torre/crear-atraccion.do" method="post">
+		<form action="/crear-atraccion.do" method="post">
 			<jsp:include page="/views/form-atraccion.jsp"></jsp:include>
 		</form>
 	</main>
