@@ -2,11 +2,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<jsp:include page="partials/head.jsp"></jsp:include>
+<jsp:include page="/partials/head.jsp"></jsp:include>}
+<jsp:include page="/partials/HeadForms.jsp"></jsp:include>
 </head>
 <body>
 	<!-- HEADER SECTION -->
-	<jsp:include page="partials/header.jsp"></jsp:include>
+	<jsp:include page="/partials/header.jsp"></jsp:include>
 
 	<!-- MAIN SECTION -->
 	<main>
@@ -42,6 +43,6 @@
 		</section>
 	</main>
 	<!-- FOOTER -->
-	<jsp:include page="partials/footer.jsp"></jsp:include>
+	<jsp:include page="/partials/footer.jsp"></jsp:include>
 </body>
 </html>

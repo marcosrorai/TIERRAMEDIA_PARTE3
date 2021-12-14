@@ -165,7 +165,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 
 			Promocion promocion = null;
 			if (resultados.next()) {
-				promocion = toPromocion(resultados, null);
+				promocion = toPromocion(resultados, atracciones);
 			}
 
 			return promocion;
@@ -181,10 +181,12 @@ public class PromocionDAOImpl implements PromocionDAO {
 	}
 
 	@Override
-	public int delete(Promocion t) {
+	public void delete(int id) {
 		// TODO Auto-generated method stub
-		return 0;
+
 	}
+
+
 
 
 

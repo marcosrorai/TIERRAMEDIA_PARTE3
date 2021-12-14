@@ -108,16 +108,16 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	}
 
 	@Override
-	public int delete(Atraccion atraccion) {
+	public void delete(int id) {
 		try {
-			String sql = "DELETE FROM ATRACCIONES WHERE ID = ?";
+			String sql = "UPDATE ATRACCIONES SET BORRADO = ? WHERE ID = ?";
 			Connection conn = ConnectionBBDD.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, atraccion.getId());
-			int rows = statement.executeUpdate();
-
-			return rows;
+			statement.setInt(1, 1);
+			statement.setInt(2, id);
+			statement.executeUpdate();
+			
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}

@@ -4,41 +4,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-	crossorigin="anonymous">
 <jsp:include page="partials/head.jsp"></jsp:include>
+<jsp:include page="/partials/HeadForms.jsp"></jsp:include>
 </head>
 
 
 <body>
 	<!-- HEADER SECTION -->
 	<jsp:include page="partials/header.jsp"></jsp:include>
-	<main class="container">
-		<h1>Tu tipo de atracción preferida es: ${user.preferencia}</h1>
-		<c:if test="${flash != null}">
-			<div class="alert alert-danger">
-				<p>
-					<c:out value="${flash}" />
-					<c:if test="${errors != null}">
-						<ul>
-							<c:forEach items="${errors}" var="entry">
-								<li><c:out value="${entry.getValue()}"></c:out></li>
-							</c:forEach>
-						</ul>
-					</c:if>
-				</p>
-			</div>
-		</c:if>
-		<c:if test="${user.esAdmin()}">
-			<div class="mb-3">
-				<a href="/torre/crear-atraccion.do" class="btn btn-primary"
-					role="button"> <i class="bi bi-plus-lg"></i> Nueva Atracción
-				</a>
-			</div>
-		</c:if>
+	<main>
+	<h1>Tu tipo de atracción preferida es: ${user.preferencia}
+	</h1>
+	<c:if test="${flash != null}">
+            <div class="alert alert-danger">
+                <p>
+                    <c:out value="${flash}" />
+                    <c:if test="${errors != null}">
+                        <ul>
+                            <c:forEach items="${errors}" var="entry">
+                                <li><c:out value="${entry.getValue()}"></c:out></li>
+                            </c:forEach>
+                        </ul>
+                    </c:if>
+                </p>
+            </div>
+        </c:if>
+	<c:if test="${user.esAdmin()}">
+            <div class="mb-3">
+                <a href="/torre/views/crear-atraccion.do" class="btn btn-primary"
+                    role="button"> <i class="bi bi-plus-lg"></i> Nueva Atracción
+                </a>
+            </div>
+        </c:if>
 		<table class="table table-stripped table-hover">
 			<thead>
 				<tr>
