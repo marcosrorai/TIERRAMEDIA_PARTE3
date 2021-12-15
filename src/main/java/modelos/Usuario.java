@@ -1,6 +1,7 @@
 package modelos;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -13,7 +14,7 @@ public class Usuario {
 	private Boolean admin=false;
 	private int id;
 	private int cantProductoYaComprados;
-	private HashMap<String, String> errors;
+	private HashMap<String, String> errores;
 
 	
 	public Usuario(String nombre, double presupuesto, double tiempoDisponible, TipoDeAtraccion preferencia, int id, Boolean admin) {
@@ -24,6 +25,17 @@ public class Usuario {
 		this.id = id;
 		this.admin = admin;
 	}
+	
+	public boolean productoNoComprado(Producto producto) {
+		boolean noComprado=true;
+		for (Producto comprado : miItinerario) {
+			if (comprado.getNombre().equals(producto.getNombre())){
+				noComprado = false;
+			}
+		}
+		return noComprado;
+	}
+	
 	public int getCantProductoYaComprados() {
 		return cantProductoYaComprados;
 	}
@@ -52,6 +64,9 @@ public class Usuario {
 	public LinkedList<Producto> getMiItinerario() {
 		return miItinerario;
 	} 
+	
+
+	
 	public void setAdmin(Boolean admin) {
         this.admin = admin;
 	}
@@ -67,6 +82,7 @@ public class Usuario {
 	public int getId() {
 		return id;
 	}
+	
 	
 	public boolean isNull() {
 		return false;
@@ -103,24 +119,26 @@ public class Usuario {
 
 		}
 	}
+	
+
 	public boolean esValido() {
 		validar();
-		return errors.isEmpty();
+		return errores.isEmpty();
 	}
 	
 	public void validar() {
-		errors = new HashMap<String, String>();
+		errores = new HashMap<String, String>();
 
 		if (presupuesto < 0) {
-			errors.put("coins", "No debe ser negativo");
+			errores.put("coins", "No debe ser negativo");
 		}
 		if (tiempoDisponible < 0) {
-			errors.put("time", "No debe ser negativo");
+			errores.put("time", "No debe ser negativo");
 		}
 	}
 	
 	public Map<String, String> getErrors() {
-		return errors;
+		return errores;
 	}
 
 	@Override

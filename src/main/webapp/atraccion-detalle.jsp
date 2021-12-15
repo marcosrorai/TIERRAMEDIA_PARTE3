@@ -12,7 +12,7 @@
 
     <!-- MAIN SECTION -->
     <main>
-      <!-- Product --> 
+      <!-- Product -->
       <section class="product-section">
         <div class="product-container content-wrapper">
           <div class="product-content">

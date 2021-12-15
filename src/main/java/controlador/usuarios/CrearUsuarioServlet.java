@@ -13,7 +13,7 @@ import servicios.UsuarioServicio;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 
-@WebServlet("/users/create.do")
+@WebServlet("/crear-usuario.do")
 public class CrearUsuarioServlet extends HttpServlet {
 	
 		private static final long serialVersionUID = 3455721046062278592L;
@@ -29,7 +29,7 @@ public class CrearUsuarioServlet extends HttpServlet {
 		protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 			RequestDispatcher dispatcher = getServletContext()
-					.getRequestDispatcher("/views/users/create.jsp");
+					.getRequestDispatcher("/crear-usuario.jsp");
 			dispatcher.forward(req, resp);
 		}
 
@@ -39,16 +39,16 @@ public class CrearUsuarioServlet extends HttpServlet {
 			Double coins = Double.parseDouble(req.getParameter("coins"));
 			Double time = Double.parseDouble(req.getParameter("time"));
 			String preferencia = req.getParameter("preferencia");
-
+			
 			Usuario tmp_user = usuarioServicio.create(username, coins, time, preferencia);
 			
 			if (tmp_user.esValido()) {
-				resp.sendRedirect("/turismo/users/index.do");
+				resp.sendRedirect("/torre/usuario.do");
 			} else {
 				req.setAttribute("tmp_user", tmp_user);
 
 				RequestDispatcher dispatcher = getServletContext()
-						.getRequestDispatcher("/views/users/create.jsp");
+						.getRequestDispatcher("/crear-usuario.jsp");
 				dispatcher.forward(req, resp);
 			}
 

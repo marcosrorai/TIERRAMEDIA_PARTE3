@@ -29,7 +29,7 @@ public class AtraccionTests {
 
 	@Before
 	public void crear() {
-		Gandalf = new Usuario("Gandalf", 100, 5, TipoDeAtraccion.PAISAJE, 1, null);
+		Gandalf = new Usuario("Gandalf", 100, 5, TipoDeAtraccion.PAISAJE, 1,0);
 		
 		Erebor = new Atraccion("Erebor", 12, 3, TipoDeAtraccion.PAISAJE, 32, 5);
 		

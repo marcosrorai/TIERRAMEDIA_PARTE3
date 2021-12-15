@@ -9,9 +9,9 @@
 			<nav>
 				<ul>
 					<li><a href="/torre/index.jsp">inicio</a></li>
-					<li><a href="/torre/listado.do">promociones</a></li>
-					<li><a href="/torre/atracciones.jsp">atracciones</a></li>
-					<li><a href="/torre/index.jsp">itinerario</a></li>
+					<li><a href="/torre/listado.do">comprar boletos</a></li>
+					
+					<li>itinerario</li>
 				</ul>
 			</nav>
 		</div>

@@ -1,6 +1,5 @@
 package servicios;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import modelos.Atraccion;
@@ -33,7 +32,8 @@ public class AtraccionServicio {
 
 		AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
 		Atraccion attraction = attractionDAO.find(id);
-
+		
+		attraction.setId(id);
 		attraction.setNombre(name);
 		attraction.setCosto(cost);
 		attraction.setDuracion(duration);
@@ -48,8 +48,11 @@ public class AtraccionServicio {
 		return attraction;
 	}
 
-	public void delete(int id) throws SQLException {
-		DAOFactory.getAtraccionDAO().delete(id);
+	public void delete(Integer id) {
+		Atraccion attraction = new Atraccion(null, 0, 0, null, 0, id);
+
+		AtraccionDAO attractionDAO = DAOFactory.getAtraccionDAO();
+		attractionDAO.delete(attraction);
 	}
 
 	public Atraccion find(Integer id) {

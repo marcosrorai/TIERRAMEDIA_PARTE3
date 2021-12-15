@@ -1,5 +1,4 @@
-<jsp:include page="/partials/HeadForms.jsp"></jsp:include>
-	<!-- MAIN SECTION -->
+<!-- MAIN SECTION -->
 	<main>
 		<!-- Product -->
 		<section class="product-section">
@@ -26,7 +25,7 @@
 						</div>
 						<div class="mb-3">
 							<label for="duration"
-								class='col-form-label ${attraction.errores.get("duration") != null ? "is-invalid" : "" }'>Duracion:</label>
+								class='col-form-label ${attraction.errores.get("duration") != null ? "is-invalid" : "" }'>Duration:</label>
 							<input class="form-control" type="number" id="duration"
 								name="duration" required value="${attraction.duracion}"></input>
 							<div class="invalid-feedback">
@@ -35,7 +34,7 @@
 						</div>
 						<div class="mb-3">
 							<label for="capacity"
-								class='col-form-label ${attraction.errores.get("capacity") != null ? "is-invalid" : "" }'>Capacidad:</label>
+								class='col-form-label ${attraction.errores.get("capacity") != null ? "is-invalid" : "" }'>Capacity:</label>
 							<input class="form-control" type="number" id="capacity"
 								name="capacity" required value="${attraction.cupo}"></input>
 							<div class="invalid-feedback">

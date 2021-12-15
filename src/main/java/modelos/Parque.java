@@ -67,10 +67,12 @@ public class Parque {
 
 					}
 					if (respuesta == 's') {
+						
 						usuario.addProductoComprado(oferta);
 						usuario.descontarDinero(oferta);
 						usuario.descontarTiempo(oferta);
 						oferta.descontarCupo();
+						
 						if (oferta.esPromo() == false) {
 							Atraccion ofertaAtraccion = (Atraccion) oferta;
 							atraccionDAO.update(ofertaAtraccion);

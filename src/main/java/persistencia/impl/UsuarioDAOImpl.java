@@ -80,7 +80,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
-	private static Producto obtenerProductoPorNombre(String nombre, List<Producto> productos) {
+	static Producto obtenerProductoPorNombre(String nombre, List<Producto> productos) {
 		for (Producto producto : productos) {
 			if (producto.getNombre().equals(nombre)) {
 				return producto;
@@ -128,7 +128,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	}
 
-	private void insertarAtraccion(Usuario usuario, Atraccion atraccion) {
+	public void insertarAtraccion(Usuario usuario, Atraccion atraccion) {
 		try {
 			String sql = "INSERT INTO itinerarios('usuario_id', 'atraccion_id') VALUES (?, ?)";
 			Connection connection = ConnectionBBDD.getConnection();
@@ -143,7 +143,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 
 	}
 
-	private void insertarPromocion(Usuario usuario, Promocion promocion) {
+	public void insertarPromocion(Usuario usuario, Promocion promocion) {
 		try {
 			String sql = "INSERT INTO itinerarios('usuario_id', 'promocion_id') VALUES (?, ?)";
 			Connection connection = ConnectionBBDD.getConnection();
@@ -164,8 +164,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		return null;
 	}
 
+
 	@Override
-	public Usuario getNombre(String nombre) {
+	public Usuario getNombre(String nombre, List<Producto> productos) {
 		try {
 			String sql = "SELECT * FROM usuarios WHERE nombre = ?";
 			Connection connection = ConnectionBBDD.getConnection();
@@ -176,7 +177,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			Usuario user = NullUser.build();
 
 			if (resultados.next()) {
-				user = toUsuario(resultados, null);
+				user = toUsuario(resultados, productos);
 			}
 
 			return user;
@@ -186,8 +187,9 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 	}
 
+
 	@Override
-	public Usuario find(Integer id) {
+	public Usuario find(Integer id, List<Producto> productos) {
 		try {
 			String sql = "SELECT * FROM USUARIOS WHERE ID = ?";
 			Connection conn = ConnectionBBDD.getConnection();
@@ -198,7 +200,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 			Usuario user = NullUser.build();
 
 			if (resultados.next()) {
-				user = toUsuario(resultados, null);
+				user = toUsuario(resultados, productos);
 			}
 
 			return user;
@@ -219,6 +221,7 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 				statement.setDouble(2, usuario.getPresupuesto());
 				statement.setDouble(3, usuario.getTiempoDisponible());
 				statement.setString(4, usuario.getPreferencia().toString());
+				
 				int rows = statement.executeUpdate();
 
 				return rows;
@@ -228,8 +231,17 @@ public class UsuarioDAOImpl implements UsuarioDAO {
 		}
 
 	@Override
-	public void delete(int id) {
+	public int delete(Usuario t) {
 		// TODO Auto-generated method stub
+		return 0;
 	}
+
+	@Override
+	public Usuario find(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
 }
 

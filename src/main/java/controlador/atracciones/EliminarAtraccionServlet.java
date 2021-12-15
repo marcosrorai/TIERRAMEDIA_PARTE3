@@ -1,7 +1,6 @@
 package controlador.atracciones;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -26,12 +25,9 @@ public class EliminarAtraccionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Integer id = Integer.parseInt(req.getParameter("id"));
 
-		try {
-			atraccionServicio.delete(id);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		resp.sendRedirect("/torre/listado.do");
+		atraccionServicio.delete(id);
+
+		resp.sendRedirect("/torre/index.jsp");
 	}
 
 

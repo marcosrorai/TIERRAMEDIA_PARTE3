@@ -152,7 +152,7 @@ public class PromocionDAOImpl implements PromocionDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	@Override
     public Promocion findPromo(Integer id, List<Atraccion> atracciones) {
         try {
@@ -173,7 +173,7 @@ public class PromocionDAOImpl implements PromocionDAO {
             throw new MissingDataException(e);
         }
     }
-
+	
 	@Override
 	public Promocion find(Integer id) {
 		try {
@@ -202,10 +202,12 @@ public class PromocionDAOImpl implements PromocionDAO {
 	}
 
 	@Override
-	public void delete(int id) {
+	public int delete(Promocion t) {
 		// TODO Auto-generated method stub
-
+		return 0;
 	}
+
+
 
 }
 

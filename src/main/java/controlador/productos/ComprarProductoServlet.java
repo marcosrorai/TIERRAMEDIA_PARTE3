@@ -1,7 +1,7 @@
 package controlador.productos;
 
-
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -12,8 +12,11 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import modelos.Atraccion;
+import modelos.Producto;
+import modelos.Promocion;
 import modelos.Usuario;
 import persistencia.comunes.DAOFactory;
+import persistencia.impl.PromocionDAOImpl;
 import servicios.ComprarProductoServicio;
 
 @WebServlet("/buy.do")
@@ -35,9 +38,14 @@ import servicios.ComprarProductoServicio;
 			Boolean esPromo = Boolean.parseBoolean(req.getParameter("esPromo"));
 			Usuario user = (Usuario) req.getSession().getAttribute("user");
 			List<Atraccion> atracciones = DAOFactory.getAtraccionDAO().getAll();
-			Map<String, String> errors = comprarProductoServicio.buy(user.getId(), productoId, esPromo, atracciones);
+			List<Producto> productos = new LinkedList<Producto>();
+			productos.addAll(atracciones);
+			PromocionDAOImpl promocionDAO = new PromocionDAOImpl();
+			List<Promocion> promociones =  promocionDAO.getAllPromo(atracciones);
+			productos.addAll(promociones);
+			Map<String, String> errors = comprarProductoServicio.buy(user.getId(), productoId, esPromo, atracciones, productos);
 
-			Usuario user2 = DAOFactory.getUsuarioDAO().find(user.getId());
+			Usuario user2 = DAOFactory.getUsuarioDAO().find(user.getId(), productos);
 			req.getSession().setAttribute("user", user2);
 
 			if (errors.isEmpty()) {

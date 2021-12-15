@@ -8,7 +8,7 @@ public interface GenericDAO<T> {
 	public void update(T t);
 	public T find(Integer id);
 	public int insert(T t);
-	public void delete(int id);
+	public int delete(T t);
 
 
 }

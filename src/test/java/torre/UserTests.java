@@ -25,9 +25,9 @@ public class UserTests {
 
 	@Before
 	public void crear() {
-		Eowyn = new Usuario("Eowyn", 10, 8, TipoDeAtraccion.AVENTURA, 1, null);
+		Eowyn = new Usuario("Eowyn", 10, 8, TipoDeAtraccion.AVENTURA, 1);
 		
-		Gandalf = new Usuario("Gandalf", nuevoPresupuesto, nuevoTiempo, TipoDeAtraccion.PAISAJE, 1, null);
+		Gandalf = new Usuario("Gandalf", nuevoPresupuesto, nuevoTiempo, TipoDeAtraccion.PAISAJE, 1);
 
 		Moria = new Atraccion("Moria", 10, 2, TipoDeAtraccion.AVENTURA, 6, 1);
 		

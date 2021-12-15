@@ -38,6 +38,7 @@ public class Atraccion extends Producto {
 	public int getId() {
 		return id;
 	}
+	
 
 	@Override
 	public String toString() {
@@ -73,7 +74,7 @@ public class Atraccion extends Producto {
 	public Map<String, String> getErrores() {
 		return errores;
 	}
-	
+
 	public void setId(Integer id) {
 		this.id= id;
 		

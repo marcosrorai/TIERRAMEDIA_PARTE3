@@ -48,19 +48,22 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	@Override
 	public void update(Atraccion atraccion) {
 		try {
-			String sql = "UPDATE atracciones SET nombre= ?, costo= ?, duracion= ?, tipo_atraccion= ? ,cupo = ? WHERE nombre = ?";
+			String sql = "UPDATE atracciones SET  costo= ?, duracion= ?, tipo_atraccion= ? ,cupo = ? WHERE id = ?";
 			Connection connection = ConnectionBBDD.getConnection();
 
 			PreparedStatement statement = connection.prepareStatement(sql);
+			
 			statement.setDouble(1, atraccion.getCosto());
 			statement.setDouble(2, atraccion.getDuracion());
 			statement.setString(3, atraccion.getTipo().toString());
 			statement.setInt(4, atraccion.getCupo());
 			statement.setInt(5, atraccion.getId());
 			statement.executeUpdate();
-			
+
 		} catch (Exception e) {
+
 			throw new MissingDataException(e);
+
 		}
 	}
 
@@ -107,16 +110,16 @@ public class AtraccionDAOImpl implements AtraccionDAO {
 	}
 
 	@Override
-	public void delete(int id) {
+	public int delete(Atraccion atraccion) {
 		try {
-			String sql = "UPDATE ATRACCIONES SET BORRADO = ? WHERE ID = ?";
+			String sql = "DELETE FROM ATRACCIONES WHERE ID = ?";
 			Connection conn = ConnectionBBDD.getConnection();
 
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setInt(1, 1);
-			statement.setInt(2, id);
-			statement.executeUpdate();
+			statement.setInt(1, atraccion.getId());
+			int rows = statement.executeUpdate();
 
+			return rows;
 		} catch (Exception e) {
 			throw new MissingDataException(e);
 		}

@@ -10,6 +10,7 @@ import persistencia.comunes.DAOFactory;
 import modelos.Atraccion;
 import modelos.Promocion;
 
+
 public class ProductoServicio {
 
 	public List<Producto> list() {
@@ -23,5 +24,6 @@ public class ProductoServicio {
 		productos.addAll(promociones);
 		return productos;
 	}
-
+	
+	
 }

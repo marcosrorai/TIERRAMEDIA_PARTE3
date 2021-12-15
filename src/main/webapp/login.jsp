@@ -39,7 +39,7 @@
 						</div>
 						<div class="login-buttons-bottom">
 							<button type="submit" class="button">Ingresar</button>
-							<a class="member" href="#">Ya soy miembro</a>
+							<a class="member" href="#">I'm already member</a>
 						</div>
 					</div>
 				</form>
